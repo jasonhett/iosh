@@ -1,10 +1,17 @@
-#OBJECT = example.o parser.o
-OBJECTS = iosh.o
+GCC = g++ -std=c++0x
 
-#HEADERS = example.h parser.h
+OBJECTS = iosh.o lex.yy.o
+
+HEADERS = global.h
 
 iosh: $(OBJECTS)
-	g++ -std=c++0x $^ -o iosh
+	$(GCC) $^ -o iosh
+
+lex.yy.o: global.h
+	$(GCC) -c lex.yy.c
+
+iosh.o: global.h iosh.cpp
+	$(GCC) -c iosh.cpp
 
 clean:
 	rm -rf *.o iosh
