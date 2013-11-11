@@ -377,10 +377,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[16] =
+static yyconst flex_int16_t yy_accept[15] =
     {   0,
         3,    3,    8,    6,    1,    5,    6,    4,    3,    1,
-        0,    2,    0,    3,    0
+        0,    2,    3,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -422,26 +422,28 @@ static yyconst flex_int32_t yy_meta[7] =
 
 static yyconst flex_int16_t yy_base[18] =
     {   0,
-        0,    0,   13,   14,    0,   14,    5,   14,    0,    0,
-        6,   14,    0,    0,   14,    8,    5
+        0,    0,   14,   15,    0,   15,    9,   15,    0,    0,
+        8,   15,    0,   15,    9,    6,    7
     } ;
 
 static yyconst flex_int16_t yy_def[18] =
     {   0,
-       15,    1,   15,   15,   16,   15,   15,   15,   17,   16,
-        7,   15,    7,   17,    0,   15,   15
+       14,    1,   14,   14,   15,   14,   16,   14,   17,   15,
+       16,   14,   17,    0,   14,   14,   14
     } ;
 
-static yyconst flex_int16_t yy_nxt[21] =
+static yyconst flex_int16_t yy_nxt[22] =
     {   0,
-        4,    5,    6,    7,    8,    9,   11,   14,   12,   10,
-       13,   15,   15,    3,   15,   15,   15,   15,   15,   15
+        4,    5,    6,    7,    8,    9,   11,   11,   11,   13,
+       10,   12,   12,   14,    3,   14,   14,   14,   14,   14,
+       14
     } ;
 
-static yyconst flex_int16_t yy_chk[21] =
+static yyconst flex_int16_t yy_chk[22] =
     {   0,
-        1,    1,    1,    1,    1,    1,    7,   17,    7,   16,
-        7,   11,    3,   15,   15,   15,   15,   15,   15,   15
+        1,    1,    1,    1,    1,    1,   16,   16,   16,   17,
+       15,   11,    7,    3,   14,   14,   14,   14,   14,   14,
+       14
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -462,7 +464,7 @@ char *yytext;
 #line 2 "i2p.l"
 #include "global.h"
 /* ** DEFINITIONS *** */
-#line 466 "lex.yy.c"
+#line 468 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -649,9 +651,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 13 "i2p.l"
+#line 14 "i2p.l"
 
-#line 655 "lex.yy.c"
+#line 657 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -704,13 +706,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 16 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 14 );
+		while ( yy_base[yy_current_state] != 15 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -736,12 +738,13 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 "i2p.l"
+#line 15 "i2p.l"
 {/* skip blanks and tabs */}
 	YY_BREAK
 case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
-#line 15 "i2p.l"
+#line 16 "i2p.l"
 {
     char* n = yytext;
     n++;
@@ -753,7 +756,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "i2p.l"
+#line 24 "i2p.l"
 {
     token t(WORD, yytext);
     vTokens.push_back(t);
@@ -762,7 +765,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 28 "i2p.l"
+#line 29 "i2p.l"
 { 
     token t(METACHAR, yytext);
     vTokens.push_back(t);
@@ -772,7 +775,7 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 33 "i2p.l"
+#line 34 "i2p.l"
 {
     token t(ENDOFLINE, yytext);
     vTokens.push_back(t);
@@ -781,15 +784,15 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 38 "i2p.l"
+#line 39 "i2p.l"
 {printf ("Unrecognizable token: [%s]\n", yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 39 "i2p.l"
+#line 40 "i2p.l"
 ECHO;
 	YY_BREAK
-#line 793 "lex.yy.c"
+#line 796 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1081,7 +1084,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 16 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1109,11 +1112,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 16 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 15);
+	yy_is_jam = (yy_current_state == 14);
 
 	return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1787,7 +1790,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 39 "i2p.l"
+#line 40 "i2p.l"
 
 
  /********** USER CODE **********/

@@ -2,13 +2,14 @@
 #include "global.h"
 %}
  /* ** DEFINITIONS *** */
+any [^"]
 endline [\n]
 delim [\t ]
 whitespace {delim}+
 alphanum [/_0-9a-zA-Z]
 word {alphanum}*
 quote ["]
-string {quote}{alphanum}*{whitespace}*{quote}
+string {quote}{any}*{quote}
 metachar [#<>]
 %%
 {whitespace} {/* skip blanks and tabs */}
