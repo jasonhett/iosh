@@ -2,10 +2,10 @@
 #include <string>
 #include <vector>
 
-#define WORD 1
-#define STRING 2 
-#define ENDOFLINE 3
-#define METACHAR 4
+#define WORD 258
+#define STRING 259 
+#define ENDOFLINE 260
+#define METACHAR 261
 
 int yylex(void);
 

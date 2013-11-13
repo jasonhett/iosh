@@ -3,6 +3,7 @@
 
 std::vector<token> vTokens;
 std::string sPrompt = "ios$ ";
+bool bDebugFlag = false;
 
 using namespace std;
 
@@ -28,6 +29,8 @@ void parser(){
                 else
                     printError("Usage: setprompt <string>");
             }
+            else if( firstValue == "debug" ) 
+                bDebugFlag = !bDebugFlag;
             break;
         default:
             printError("firstType default");
@@ -45,10 +48,16 @@ int main(){
             do{
                 lookahead = yylex();
             } while(lookahead != ENDOFLINE);
-            for( int i = 0; i < vTokens.size(); i++ ){
-                cout << "Type: " << vTokens[i].getType() << endl
-                 << "Value: " << vTokens[i].getValue() << endl;
 
+            if(bDebugFlag){
+                // possible move this stuff to a function and add more
+                cout << "Tokens: " << endl;
+                for( int i = 0; i < vTokens.size(); i++ ){
+                    cout << "   Token " << i << ":" << endl
+                     << "       Type: " << vTokens[i].getType() << endl
+                     << "       Value: " << vTokens[i].getValue() << endl;
+
+                }
             }
             parser();
     } while (vTokens[0].getValue()!="exit");

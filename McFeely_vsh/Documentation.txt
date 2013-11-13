@@ -1,0 +1,16 @@
+
+The purpose of this project was to implement a verbose shell.
+
+Algorithms:
+    To implement this project, I made a simple token class to store the value, type, and usage of each token. A token is a 'part' of the users
+    input that has been categorized in a meaningful way. The scanner functionality (see scanner.cpp) breaks the user input into these tokens
+    and stores each token in a vector.
+    The parser calls the scanner (technically scan_cntrler) and stores the vector of tokens that the scanner returns. Next, the parser figures
+    out if the user input a valid command and then executes that command if it is valid.
+    At the top level, the verbose shell (refer to vsh.cpp) just does an infinite loop supplying any user input to the parser. Additionally,
+    the verbose shell top level holds the value    of the verbose shells variables in a vsh_var variable that I made.
+   
+Limitations:
+    When input is supplied to the verbose shell from a file, after all of the commands in the file are executed appropriately, the prompt is then
+    output once for each of those commands.
+   

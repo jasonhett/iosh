@@ -1,0 +1,9 @@
+README file for Zachary S McFeely's verbose shell project
+
+Files included:
+	vsh.cpp
+	parser.cpp
+	scanner.cpp
+	token.h
+	vsh_var.h
+	makefile

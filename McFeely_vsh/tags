@@ -1,0 +1,42 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARGLEN	parser.cpp	12;"	d	file:
+BUFLEN	vsh.cpp	10;"	d	file:
+_TOKEN_H_	token.h	8;"	d
+_VSH_VAR_H_	vsh_var.h	8;"	d
+echoCmd	vsh_var.h	/^	bool echoCmd() const{return echocmd;}$/;"	f	class:vsh_var
+echocmd	vsh_var.h	/^	bool echocmd; 	\/\/the state of command echoing --> false means echoing is off$/;"	m	class:vsh_var
+find_metachars	scanner.cpp	/^vector<token> find_metachars(string metastr){$/;"	f
+getPrompt	vsh_var.h	/^	string getPrompt() const{return prompt;}$/;"	f	class:vsh_var
+getType	token.h	/^  int getType() const{return type;}$/;"	f	class:token
+getUsage	token.h	/^  string getUsage() const{return usage;}$/;"	f	class:token
+getValue	token.h	/^  string getValue() const{return value;}$/;"	f	class:token
+isVarName	scanner.cpp	/^bool isVarName (const string str){$/;"	f
+main	vsh.cpp	/^int main()$/;"	f
+parseCmd	vsh_var.h	/^	bool parseCmd() const{return parsecmd;}$/;"	f	class:vsh_var
+parsecmd	vsh_var.h	/^	bool parsecmd; 	\/\/the state of command parsing --> if parsecmd = false --> command parsing is off$/;"	m	class:vsh_var
+parser	parser.cpp	/^void parser(const string* input, vsh_var& vshell){$/;"	f
+print_parsed_cmd	parser.cpp	/^void print_parsed_cmd(const vector<token> &input){ \/\/Used to print the parsed command if parsecmd is on$/;"	f
+prompt	vsh_var.h	/^	string prompt; \/\/the prompt$/;"	m	class:vsh_var
+scan_cntrler	scanner.cpp	/^vector<token> scan_cntrler(const string* input){ \/\/This function provides a top-level abstraction for the scanner functionality$/;"	f
+scanner	scanner.cpp	/^vector<token> scanner(const string input){$/;"	f
+setEchoCmd	vsh_var.h	/^	void setEchoCmd(bool value){echocmd = value;}$/;"	f	class:vsh_var
+setParseCmd	vsh_var.h	/^	void setParseCmd(bool value){parsecmd = value;}$/;"	f	class:vsh_var
+setPrompt	vsh_var.h	/^	void setPrompt(string inStr){prompt = inStr;}$/;"	f	class:vsh_var
+setShowChild	vsh_var.h	/^	void setShowChild(bool value){showchild = value;}$/;"	f	class:vsh_var
+setType	token.h	/^  void setType(int inType){type = inType;}$/;"	f	class:token
+setUsage	token.h	/^  void setUsage(string inStr){usage = inStr;}$/;"	f	class:token
+setValue	token.h	/^  void setValue(string inVal){value = inVal;}$/;"	f	class:token
+showChild	vsh_var.h	/^	bool showChild() const{return showchild;}$/;"	f	class:vsh_var
+showchild	vsh_var.h	/^	bool showchild; \/\/the state of child proccess information reporting --> false means reporting is off$/;"	m	class:vsh_var
+token	token.h	/^  token(){$/;"	f	class:token
+token	token.h	/^class token{$/;"	c
+type	token.h	/^	int type;$/;"	m	class:token
+usage	token.h	/^	string usage;$/;"	m	class:token
+value	token.h	/^	string value;$/;"	m	class:token
+vsh_var	vsh_var.h	/^  vsh_var(){ \/\/constructor$/;"	f	class:vsh_var
+vsh_var	vsh_var.h	/^class vsh_var{$/;"	c

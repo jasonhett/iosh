@@ -2,21 +2,22 @@
 #include "global.h"
 %}
  /* ** DEFINITIONS *** */
-any [^"]
+anyButQuotes [^"]
+anyButMetaChars [^ #<>\n]
 endline [\n]
 delim [\t ]
 whitespace {delim}+
 alphanum [/_0-9a-zA-Z]
-word {alphanum}*
+word {anyButMetaChars}*
 quote ["]
-string {quote}{any}*{quote}
+string {quote}{anyButQuotes}*{quote}
 metachar [#<>]
 %%
 {whitespace} {/* skip blanks and tabs */}
 {string} {
     char* n = yytext;
     n++;
-    n[strlen(n)-1]=0;
+    n[strlen(n)-1] = 0;
     token t(STRING, n);
     vTokens.push_back(t);
     return STRING;
@@ -32,11 +33,10 @@ metachar [#<>]
     return METACHAR;
     }
 {endline} {
-    token t(ENDOFLINE, yytext);
+    token t(ENDOFLINE, "\\n");
     vTokens.push_back(t);
     return ENDOFLINE;
     }
-. {printf ("Unrecognizable token: [%s]\n", yytext);}
 %%
  /********** USER CODE **********/
 int yywrap(void) {return 1;}
