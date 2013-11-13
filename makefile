@@ -1,4 +1,4 @@
-GCC = g++ -std=c++0x
+GCC = g++ 
 
 OBJECTS = iosh.o lex.yy.o
 
