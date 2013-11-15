@@ -16,10 +16,11 @@ void printError(string s){
     cout << "Error: " << s << endl;
 }
 
-bool runcmd(string cmd_passed){
+bool runcmd(int cmd_poss){
     //build cmd array and args
+    string cmd_passed = vTokens[cmd_poss].getValue();
     int num_of_args = 2;
-    int iter = 1;
+    int iter = cmd_poss+1;
     while(vTokens[iter].getType() == WORD){
         num_of_args++;
         iter++;
@@ -32,7 +33,7 @@ bool runcmd(string cmd_passed){
 
     args[0] = cmdstr;
     args[num_of_args-1] = NULL;
-    for(int i=1; i<num_of_args-1;i++){
+    for(int i=cmd_poss+1; i<num_of_args-1;i++){
         string s = vTokens[i].getValue();
         char *cstr = new char [s.length()+1];
         strcpy (cstr, s.c_str());
@@ -53,6 +54,7 @@ bool runcmd(string cmd_passed){
 bool parser(){
     int firstType = vTokens[0].getType();
     string firstValue = vTokens[0].getValue();
+    int commandpos =0;
     bool haspipe = false;
     if(firstValue != "exit" && firstValue != "quit"){
         switch( firstType ){
@@ -100,10 +102,6 @@ bool parser(){
                         printError("chdir error");
                     }
                 } else if (haspipe) {
-                   cout<<"has pipe"<<endl;
-                   
-                   int inmetacharpos = -1;
-                   int outmetacharpos = -1;
                    int ifd;
                    int ofd;
                    //find optional input file
@@ -114,7 +112,7 @@ bool parser(){
                             if((i-1)>=0){
                                 ifilename = vTokens[i-1].getValue();
                                 hasinfile = true;
-                                inmetacharpos = i;
+                                commandpos = i+1;
                             } else {
                                 printError("No inFile given");
                             }
@@ -136,39 +134,61 @@ bool parser(){
                         if(vTokens[i].getValue() == ">"){
                             ofilename = vTokens[i+1].getValue();
                             hasoutfile = true;
-                            outmetacharpos = i;
                         }
                    }
                    if(hasoutfile){
                         char *ocstrfile = new char [ofilename.length()+1];
                         strcpy (ocstrfile, ofilename.c_str());
+                        
+                        //create file always
+                        FILE * pFile;
+                        pFile = fopen(ocstrfile, "w");
+                        fclose(pFile);
+
                         if ((ofd = open(ocstrfile, O_WRONLY)) < 0) { 
                             perror("outFile Open"); 
                             hasoutfile = false;
                         } 
                    }
                    //infile successfully opened, build args list
-                   if(hasinfile){
-                       //build agrs from file;
-
+                   if(hasinfile && !hasoutfile){
+                       int fdhold = dup(0);
+                       dup2(ifd, 0);
+                        if(!runcmd(commandpos)){
+                            cout << "No Command found: " << firstValue << endl;
+                            cout << "Usage: <command> <arguments>" << endl;   
+                        };
+                      //redirect io
+                       dup2(fdhold, 0);
                    }
                    //output file successfully open
-                   if(hasoutfile){
-                      //overwrite stdio
+                   if(hasoutfile && !hasinfile){
                        int fdhold = dup(1);
                        dup2(ofd, 1);
-                      //run cmd
-                        if(!runcmd(firstValue)){
+                        if(!runcmd(commandpos)){
                             cout << "No Command found: " << firstValue << endl;
                             cout << "Usage: <command> <arguments>" << endl;   
                         };
                       //redirect io
                        dup2(fdhold, 1);
                    }
+                   if(hasinfile && hasoutfile){
+                       int fdhold = dup(1);
+                       int fdhold2 = dup(0);
+                       dup2(ofd, 1);
+                       dup2(ifd, 0);
+                        if(!runcmd(commandpos)){
+                            cout << "No Command found: " << firstValue << endl;
+                            cout << "Usage: <command> <arguments>" << endl;   
+                        };
+                      //redirect io
+                       dup2(fdhold, 1);
+                       dup2(fdhold2, 0);
+                   }
                 }
                 else {
                     //attempt to run the command
-                    if(!runcmd(firstValue)){
+                    if(!runcmd(commandpos)){
                         cout << "No Command found: " << firstValue << endl;
                         cout << "Usage: <command> <arguments>" << endl;   
                     };
