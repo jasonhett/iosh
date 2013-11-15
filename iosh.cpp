@@ -64,6 +64,8 @@ bool parser(){
                 else
                     printError("metachar default");
                 break;
+            case 260:
+                break;
             case WORD:
                 //test for piping
                 for(int i=1; i<vTokens.size()-1; i++){
@@ -173,6 +175,16 @@ bool parser(){
                        dup2(fdhold, 1);
                    }
                    if(hasinfile && hasoutfile){
+
+                       //read file into memory
+                       char buf[512]; 
+                       int nbytes; /* number of bytes read */ 
+                       /* Open file fd ... */ 
+                       /* Then read up to 512 bytes from file fd */ 
+                       if ((nbytes = read(ifd, buf, sizeof(buf))) < 0) { 
+                            perror("inFile read"); 
+                       } 
+
                        int fdhold = dup(1);
                        int fdhold2 = dup(0);
                        dup2(ofd, 1);
@@ -195,6 +207,7 @@ bool parser(){
                 }
                 break;
             default:
+                cout<<firstValue;
                 printError("firstType default");
                 break;
         }
