@@ -56,6 +56,7 @@ bool parser(){
     string firstValue = vTokens[0].getValue();
     int commandpos =0;
     bool haspipe = false;
+    
     if(firstValue != "exit" && firstValue != "quit"){
         switch( firstType ){
             case METACHAR:
@@ -235,7 +236,7 @@ int main(){
             printPrompt();
             do{
                 lookahead = yylex();
-            } while(lookahead != ENDOFLINE);
+            } while(lookahead != ENDOFLINE && lookahead !=0);
 
             if(bDebugFlag){
                 // possible move this stuff to a function and add more
@@ -247,7 +248,7 @@ int main(){
 
                 }
             }
-    } while (parser());
+    } while (parser()&& lookahead!=0);
     
     return 0;
 }
