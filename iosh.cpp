@@ -1,4 +1,8 @@
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <iostream>
+#include <fstream>
 #include "global.h"
 
 std::vector<token> vTokens;
@@ -49,6 +53,7 @@ bool runcmd(string cmd_passed){
 bool parser(){
     int firstType = vTokens[0].getType();
     string firstValue = vTokens[0].getValue();
+    bool haspipe = false;
     if(firstValue != "exit" && firstValue != "quit"){
         switch( firstType ){
             case METACHAR:
@@ -58,6 +63,12 @@ bool parser(){
                     printError("metachar default");
                 break;
             case WORD:
+                //test for piping
+                for(int i=1; i<vTokens.size()-1; i++){
+                if(vTokens[i].getValue() == "<" || vTokens[i].getValue() == ">"){
+                         haspipe = true;
+                    }
+                }
                 if( firstValue == "setprompt" ) {
                     if(vTokens[1].getType()==STRING)
                         sPrompt = vTokens[1].getValue()+ " ";
@@ -88,15 +99,54 @@ bool parser(){
                     if(retValue){
                         printError("chdir error");
                     }
+                } else if (haspipe) {
+                   cout<<"has pipe"<<endl;
+                   
+                   //find optional input file
+                   bool hasinfile = false;
+                   string ifilename;
+                   for(int i=0; i<vTokens.size();i++){
+                        if(vTokens[i].getValue() == "<"){
+                            if((i-1)>=0){
+                                ifilename = vTokens[i-1].getValue();
+                                hasinfile = true;
+                            } else {
+                                printError("No inFile given");
+                            }
+                        }
+                   }
+                   if(hasinfile){
+                        char *icstrfile = new char [ifilename.length()+1];
+                        strcpy (icstrfile, ifilename.c_str());
+                        int fd1;
+                        if ((fd1 = open(icstrfile, O_RDONLY)) < 0) { 
+                            perror("open"); 
+                        } 
+                   }
+
+                   //find optional outfile
+                   bool hasoutfile = false;
+                   string ofilename;
+                   for(int i=0; i<vTokens.size();i++){
+                        if(vTokens[i].getValue() == ">"){
+                            ofilename = vTokens[i+1].getValue();
+                            hasoutfile = true;
+                        }
+                   }
+                   if(hasoutfile){
+                        char *ocstrfile = new char [ofilename.length()+1];
+                        strcpy (ocstrfile, ofilename.c_str());
+                        int fd;
+                        if ((fd = open(ocstrfile, O_RDONLY)) < 0) { 
+                            perror("open"); 
+                        } 
+                   }
                 }
                 else {
                     //attempt to run the command
-                    //i removed the error message call
-                    //because i didnt like the "Error: " part
                     if(!runcmd(firstValue)){
                         cout << "No Command found: " << firstValue << endl;
                         cout << "Usage: <command> <arguments>" << endl;   
-
                     };
                 }
                 break;
