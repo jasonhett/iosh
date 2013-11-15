@@ -102,6 +102,10 @@ bool parser(){
                 } else if (haspipe) {
                    cout<<"has pipe"<<endl;
                    
+                   int inmetacharpos = -1;
+                   int outmetacharpos = -1;
+                   int ifd;
+                   int ofd;
                    //find optional input file
                    bool hasinfile = false;
                    string ifilename;
@@ -110,6 +114,7 @@ bool parser(){
                             if((i-1)>=0){
                                 ifilename = vTokens[i-1].getValue();
                                 hasinfile = true;
+                                inmetacharpos = i;
                             } else {
                                 printError("No inFile given");
                             }
@@ -118,9 +123,9 @@ bool parser(){
                    if(hasinfile){
                         char *icstrfile = new char [ifilename.length()+1];
                         strcpy (icstrfile, ifilename.c_str());
-                        int fd1;
-                        if ((fd1 = open(icstrfile, O_RDONLY)) < 0) { 
-                            perror("open"); 
+                        if ((ifd = open(icstrfile, O_RDONLY)) < 0) { 
+                            perror("inFile Open"); 
+                            hasinfile = false;
                         } 
                    }
 
@@ -131,15 +136,34 @@ bool parser(){
                         if(vTokens[i].getValue() == ">"){
                             ofilename = vTokens[i+1].getValue();
                             hasoutfile = true;
+                            outmetacharpos = i;
                         }
                    }
                    if(hasoutfile){
                         char *ocstrfile = new char [ofilename.length()+1];
                         strcpy (ocstrfile, ofilename.c_str());
-                        int fd;
-                        if ((fd = open(ocstrfile, O_RDONLY)) < 0) { 
-                            perror("open"); 
+                        if ((ofd = open(ocstrfile, O_WRONLY)) < 0) { 
+                            perror("outFile Open"); 
+                            hasoutfile = false;
                         } 
+                   }
+                   //infile successfully opened, build args list
+                   if(hasinfile){
+                       //build agrs from file;
+
+                   }
+                   //output file successfully open
+                   if(hasoutfile){
+                      //overwrite stdio
+                       int fdhold = dup(1);
+                       dup2(ofd, 1);
+                      //run cmd
+                        if(!runcmd(firstValue)){
+                            cout << "No Command found: " << firstValue << endl;
+                            cout << "Usage: <command> <arguments>" << endl;   
+                        };
+                      //redirect io
+                       dup2(fdhold, 1);
                    }
                 }
                 else {
