@@ -49,7 +49,7 @@ bool runcmd(string cmd_passed){
 bool parser(){
     int firstType = vTokens[0].getType();
     string firstValue = vTokens[0].getValue();
-    if(firstValue != "exit"){
+    if(firstValue != "exit" && firstValue != "quit"){
         switch( firstType ){
             case METACHAR:
                 if( firstValue == "#" )
