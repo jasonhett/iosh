@@ -2,7 +2,8 @@
 #include "global.h"
 
 std::vector<token> vTokens;
-std::string sPrompt = "ios$ ";
+std::string sPrompt = "ios";
+std::string sCurDir = "";
 bool bDebugFlag = false;
 
 using namespace std;
@@ -13,25 +14,34 @@ void printError(string s){
 
 bool runcmd(string cmd_passed){
     //build cmd array and args
-    int num_of_args =0;
-    int iter =1;
+    int num_of_args = 2;
+    int iter = 1;
     while(vTokens[iter].getType() == WORD){
         num_of_args++;
+        iter++;
     } 
     const char* cmd = cmd_passed.c_str();
     char* args[num_of_args];
-    for(int i=1; i<num_of_args;i++){
+
+    char *cmdstr = new char [cmd_passed.length()+1];
+    strcpy (cmdstr, cmd_passed.c_str());
+
+    args[0] = cmdstr;
+    args[num_of_args-1] = NULL;
+    for(int i=1; i<num_of_args-1;i++){
         string s = vTokens[i].getValue();
-        char * cstr = new char [s.length()+1];
+        char *cstr = new char [s.length()+1];
         strcpy (cstr, s.c_str());
-        args[i-1] = cstr;
+        args[i] = cstr;
     }
 
-    if(!fork()){   
-        execvp(cmd,args);
+    if(fork()){   
+        wait(0);
     }
     else {
-        wait(0);
+        execvp(cmd,args);
+        cout << "Command not found: " << cmd << endl;
+        exit(EXIT_SUCCESS);
     }
     return true;
 }
@@ -55,12 +65,38 @@ bool parser(){
                         printError("Usage: setprompt <string>");
                 }
                 else if( firstValue == "debug" ) { 
-                    bDebugFlag = !bDebugFlag;
+                    if(vTokens[1].getType()==WORD) {
+                        if(vTokens[1].getValue()=="on"){
+                            bDebugFlag = true;
+                        }
+                        else if (vTokens[1].getValue()=="off"){
+                            bDebugFlag = false;
+                        }
+                        else
+                            printError("Usage: debug on (or off)");
+                    }
+                    else
+                        printError("Usage: debug on (or off)");
+                    break;
+                }
+                else if( firstValue == "chdir" ) { 
+                    string s = vTokens[1].getValue();
+                    char *cstr = new char [s.length()+1];
+                    strcpy (cstr, s.c_str());
+                    int retValue;
+                    retValue = chdir(cstr);
+                    if(retValue){
+                        printError("chdir error");
+                    }
                 }
                 else {
                     //attempt to run the command
+                    //i removed the error message call
+                    //because i didnt like the "Error: " part
                     if(!runcmd(firstValue)){
-                        printError("No Command found: '"+ firstValue +"' Usage: <command> <arguments>");   
+                        cout << "No Command found: " << firstValue << endl;
+                        cout << "Usage: <command> <arguments>" << endl;   
+
                     };
                 }
                 break;
@@ -74,14 +110,22 @@ bool parser(){
         return false;
     }
 }
-
+void printPrompt(){
+    if(sCurDir == "")
+    {
+        cout << sPrompt << ":~$ ";
+    }
+    else{
+        cout << sPrompt << ":~" << sCurDir << "$ ";
+    }
+}
 int main(){
 
     int lookahead;
     do{
             // reset vTokens
             vTokens.clear();
-            cout << sPrompt;
+            printPrompt();
             do{
                 lookahead = yylex();
             } while(lookahead != ENDOFLINE);

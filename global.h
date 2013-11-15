@@ -1,6 +1,9 @@
-
+#include <cstring>
+#include <sys/wait.h>
 #include <string>
 #include <vector>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define WORD 258
 #define STRING 259 

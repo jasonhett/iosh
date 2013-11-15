@@ -4,36 +4,38 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARGLEN	McFeely_vsh/parser.cpp	12;"	d	file:
 BEGIN	lex.yy.c	125;"	d	file:
-ECHO	lex.yy.c	559;"	d	file:
-ENDOFLINE	global.h	9;"	d
+BUFLEN	McFeely_vsh/vsh.cpp	10;"	d	file:
+ECHO	lex.yy.c	563;"	d	file:
+ENDOFLINE	global.h	7;"	d
 EOB_ACT_CONTINUE_SCAN	lex.yy.c	168;"	d	file:
 EOB_ACT_END_OF_FILE	lex.yy.c	169;"	d	file:
 EOB_ACT_LAST_MATCH	lex.yy.c	170;"	d	file:
 FLEXINT_H	lex.yy.c	29;"	d	file:
 FLEX_BETA	lex.yy.c	13;"	d	file:
 FLEX_SCANNER	lex.yy.c	8;"	d	file:
-GLOBAL	global.h	2;"	d
+GCC	makefile	/^GCC = g++ $/;"	m
 HEADERS	makefile	/^HEADERS = global.h$/;"	m
-INITIAL	lex.yy.c	467;"	d	file:
+INITIAL	lex.yy.c	471;"	d	file:
 INT16_MAX	lex.yy.c	71;"	d	file:
 INT16_MIN	lex.yy.c	62;"	d	file:
 INT32_MAX	lex.yy.c	74;"	d	file:
 INT32_MIN	lex.yy.c	65;"	d	file:
 INT8_MAX	lex.yy.c	68;"	d	file:
 INT8_MIN	lex.yy.c	59;"	d	file:
-METACHAR	global.h	10;"	d
+METACHAR	global.h	8;"	d
 OBJECTS	makefile	/^OBJECTS = iosh.o lex.yy.o$/;"	m
-REJECT	lex.yy.c	456;"	d	file:
-STRING	global.h	8;"	d
+REJECT	lex.yy.c	460;"	d	file:
+STRING	global.h	6;"	d
 UINT16_MAX	lex.yy.c	80;"	d	file:
 UINT32_MAX	lex.yy.c	83;"	d	file:
 UINT8_MAX	lex.yy.c	77;"	d	file:
-WORD	global.h	7;"	d
+WORD	global.h	5;"	d
 YYSTATE	lex.yy.c	132;"	d	file:
-YYTABLES_NAME	lex.yy.c	1785;"	d	file:
+YYTABLES_NAME	lex.yy.c	1788;"	d	file:
 YY_AT_BOL	lex.yy.c	339;"	d	file:
-YY_BREAK	lex.yy.c	638;"	d	file:
+YY_BREAK	lex.yy.c	642;"	d	file:
 YY_BUFFER_EOF_PENDING	lex.yy.c	255;"	d	file:
 YY_BUFFER_NEW	lex.yy.c	243;"	d	file:
 YY_BUFFER_NORMAL	lex.yy.c	244;"	d	file:
@@ -43,41 +45,47 @@ YY_BUF_SIZE	lex.yy.c	151;"	d	file:
 YY_CHAR	lex.yy.c	/^typedef unsigned char YY_CHAR;$/;"	t	file:
 YY_CURRENT_BUFFER	lex.yy.c	271;"	d	file:
 YY_CURRENT_BUFFER_LVALUE	lex.yy.c	278;"	d	file:
-YY_DECL	lex.yy.c	626;"	d	file:
-YY_DECL_IS_OURS	lex.yy.c	622;"	d	file:
+YY_DECL	lex.yy.c	630;"	d	file:
+YY_DECL_IS_OURS	lex.yy.c	626;"	d	file:
 YY_DO_BEFORE_ACTION	lex.yy.c	364;"	d	file:
 YY_END_OF_BUFFER	lex.yy.c	372;"	d	file:
 YY_END_OF_BUFFER_CHAR	lex.yy.c	140;"	d	file:
-YY_EXIT_FAILURE	lex.yy.c	1583;"	d	file:
-YY_EXTRA_TYPE	lex.yy.c	478;"	d	file:
-YY_FATAL_ERROR	lex.yy.c	613;"	d	file:
+YY_EXIT_FAILURE	lex.yy.c	1586;"	d	file:
+YY_EXTRA_TYPE	lex.yy.c	482;"	d	file:
+YY_FATAL_ERROR	lex.yy.c	617;"	d	file:
 YY_FLEX_MAJOR_VERSION	lex.yy.c	9;"	d	file:
 YY_FLEX_MINOR_VERSION	lex.yy.c	10;"	d	file:
 YY_FLEX_SUBMINOR_VERSION	lex.yy.c	11;"	d	file:
 YY_FLUSH_BUFFER	lex.yy.c	307;"	d	file:
-YY_INPUT	lex.yy.c	566;"	d	file:
+YY_INPUT	lex.yy.c	570;"	d	file:
 YY_INT_ALIGNED	lex.yy.c	4;"	d	file:
 YY_LESS_LINENO	lex.yy.c	172;"	d	file:
-YY_MORE_ADJ	lex.yy.c	458;"	d	file:
+YY_MORE_ADJ	lex.yy.c	462;"	d	file:
 YY_NEW_FILE	lex.yy.c	138;"	d	file:
 YY_NULL	lex.yy.c	112;"	d	file:
 YY_NUM_RULES	lex.yy.c	371;"	d	file:
-YY_READ_BUF_SIZE	lex.yy.c	548;"	d	file:
-YY_READ_BUF_SIZE	lex.yy.c	550;"	d	file:
-YY_RESTORE_YY_MORE_OFFSET	lex.yy.c	459;"	d	file:
-YY_RULE_SETUP	lex.yy.c	641;"	d	file:
+YY_READ_BUF_SIZE	lex.yy.c	552;"	d	file:
+YY_READ_BUF_SIZE	lex.yy.c	554;"	d	file:
+YY_RESTORE_YY_MORE_OFFSET	lex.yy.c	463;"	d	file:
+YY_RULE_SETUP	lex.yy.c	645;"	d	file:
 YY_SC_TO_UI	lex.yy.c	119;"	d	file:
 YY_START	lex.yy.c	131;"	d	file:
-YY_START_STACK_INCR	lex.yy.c	608;"	d	file:
+YY_START_STACK_INCR	lex.yy.c	612;"	d	file:
 YY_STATE_BUF_SIZE	lex.yy.c	157;"	d	file:
 YY_STATE_EOF	lex.yy.c	135;"	d	file:
 YY_STRUCT_YY_BUFFER_STATE	lex.yy.c	196;"	d	file:
 YY_TYPEDEF_YY_BUFFER_STATE	lex.yy.c	160;"	d	file:
 YY_TYPEDEF_YY_SIZE_T	lex.yy.c	191;"	d	file:
-YY_USER_ACTION	lex.yy.c	633;"	d	file:
+YY_USER_ACTION	lex.yy.c	637;"	d	file:
 YY_USE_CONST	lex.yy.c	100;"	d	file:
 YY_USE_CONST	lex.yy.c	93;"	d	file:
+_TOKEN_H_	McFeely_vsh/token.h	8;"	d
+_VSH_VAR_H_	McFeely_vsh/vsh_var.h	8;"	d
 __STDC_LIMIT_MACROS	lex.yy.c	39;"	d	file:
+bDebugFlag	iosh.cpp	/^bool bDebugFlag = false;$/;"	v
+echoCmd	McFeely_vsh/vsh_var.h	/^	bool echoCmd() const{return echocmd;}$/;"	f	class:vsh_var
+echocmd	McFeely_vsh/vsh_var.h	/^	bool echocmd; 	\/\/the state of command echoing --> false means echoing is off$/;"	m	class:vsh_var
+find_metachars	McFeely_vsh/scanner.cpp	/^vector<token> find_metachars(string metastr){$/;"	f
 flex_int16_t	lex.yy.c	/^typedef int16_t flex_int16_t;$/;"	t	file:
 flex_int16_t	lex.yy.c	/^typedef short int flex_int16_t;$/;"	t	file:
 flex_int32_t	lex.yy.c	/^typedef int flex_int32_t;$/;"	t	file:
@@ -90,20 +98,53 @@ flex_uint32_t	lex.yy.c	/^typedef uint32_t flex_uint32_t;$/;"	t	file:
 flex_uint32_t	lex.yy.c	/^typedef unsigned int flex_uint32_t;$/;"	t	file:
 flex_uint8_t	lex.yy.c	/^typedef uint8_t flex_uint8_t;$/;"	t	file:
 flex_uint8_t	lex.yy.c	/^typedef unsigned char flex_uint8_t; $/;"	t	file:
+getPrompt	McFeely_vsh/vsh_var.h	/^	string getPrompt() const{return prompt;}$/;"	f	class:vsh_var
+getType	McFeely_vsh/token.h	/^  int getType() const{return type;}$/;"	f	class:token
 getType	global.h	/^    int getType(){$/;"	f	class:token
+getUsage	McFeely_vsh/token.h	/^  string getUsage() const{return usage;}$/;"	f	class:token
+getValue	McFeely_vsh/token.h	/^  string getValue() const{return value;}$/;"	f	class:token
 getValue	global.h	/^    std::string getValue(){$/;"	f	class:token
+isVarName	McFeely_vsh/scanner.cpp	/^bool isVarName (const string str){$/;"	f
+main	McFeely_vsh/vsh.cpp	/^int main()$/;"	f
 main	iosh.cpp	/^int main(){$/;"	f
+parseCmd	McFeely_vsh/vsh_var.h	/^	bool parseCmd() const{return parsecmd;}$/;"	f	class:vsh_var
+parsecmd	McFeely_vsh/vsh_var.h	/^	bool parsecmd; 	\/\/the state of command parsing --> if parsecmd = false --> command parsing is off$/;"	m	class:vsh_var
+parser	McFeely_vsh/parser.cpp	/^void parser(const string* input, vsh_var& vshell){$/;"	f
+parser	iosh.cpp	/^bool parser(){$/;"	f
+printError	iosh.cpp	/^void printError(string s){$/;"	f
+print_parsed_cmd	McFeely_vsh/parser.cpp	/^void print_parsed_cmd(const vector<token> &input){ \/\/Used to print the parsed command if parsecmd is on$/;"	f
+prompt	McFeely_vsh/vsh_var.h	/^	string prompt; \/\/the prompt$/;"	m	class:vsh_var
+runcmd	iosh.cpp	/^bool runcmd(string cmd_passed){$/;"	f
+sPrompt	iosh.cpp	/^std::string sPrompt = "ios$ ";$/;"	v
+scan_cntrler	McFeely_vsh/scanner.cpp	/^vector<token> scan_cntrler(const string* input){ \/\/This function provides a top-level abstraction for the scanner functionality$/;"	f
+scanner	McFeely_vsh/scanner.cpp	/^vector<token> scanner(const string input){$/;"	f
+setEchoCmd	McFeely_vsh/vsh_var.h	/^	void setEchoCmd(bool value){echocmd = value;}$/;"	f	class:vsh_var
+setParseCmd	McFeely_vsh/vsh_var.h	/^	void setParseCmd(bool value){parsecmd = value;}$/;"	f	class:vsh_var
+setPrompt	McFeely_vsh/vsh_var.h	/^	void setPrompt(string inStr){prompt = inStr;}$/;"	f	class:vsh_var
+setShowChild	McFeely_vsh/vsh_var.h	/^	void setShowChild(bool value){showchild = value;}$/;"	f	class:vsh_var
+setType	McFeely_vsh/token.h	/^  void setType(int inType){type = inType;}$/;"	f	class:token
 setType	global.h	/^    void setType(int t){$/;"	f	class:token
+setUsage	McFeely_vsh/token.h	/^  void setUsage(string inStr){usage = inStr;}$/;"	f	class:token
+setValue	McFeely_vsh/token.h	/^  void setValue(string inVal){value = inVal;}$/;"	f	class:token
 setValue	global.h	/^    void setValue(std::string s){$/;"	f	class:token
+showChild	McFeely_vsh/vsh_var.h	/^	bool showChild() const{return showchild;}$/;"	f	class:vsh_var
+showchild	McFeely_vsh/vsh_var.h	/^	bool showchild; \/\/the state of child proccess information reporting --> false means reporting is off$/;"	m	class:vsh_var
+token	McFeely_vsh/token.h	/^  token(){$/;"	f	class:token
+token	McFeely_vsh/token.h	/^class token{$/;"	c
 token	global.h	/^    token(int t, std::string s){$/;"	f	class:token
 token	global.h	/^class token{$/;"	c
+type	McFeely_vsh/token.h	/^	int type;$/;"	m	class:token
 type	global.h	/^    int type;$/;"	m	class:token
 unput	lex.yy.c	188;"	d	file:
-vTokens	global.h	/^std::vector<token> vTokens;$/;"	v
+usage	McFeely_vsh/token.h	/^	string usage;$/;"	m	class:token
+vTokens	iosh.cpp	/^std::vector<token> vTokens;$/;"	v
+value	McFeely_vsh/token.h	/^	string value;$/;"	m	class:token
 value	global.h	/^    std::string value;$/;"	m	class:token
-yy_accept	lex.yy.c	/^static yyconst flex_int16_t yy_accept[15] =$/;"	v	file:
+vsh_var	McFeely_vsh/vsh_var.h	/^  vsh_var(){ \/\/constructor$/;"	f	class:vsh_var
+vsh_var	McFeely_vsh/vsh_var.h	/^class vsh_var{$/;"	c
+yy_accept	lex.yy.c	/^static yyconst flex_int16_t yy_accept[18] =$/;"	v	file:
 yy_at_bol	lex.yy.c	/^	int yy_at_bol;$/;"	m	struct:yy_buffer_state	file:
-yy_base	lex.yy.c	/^static yyconst flex_int16_t yy_base[17] =$/;"	v	file:
+yy_base	lex.yy.c	/^static yyconst flex_int16_t yy_base[20] =$/;"	v	file:
 yy_bs_column	lex.yy.c	/^    int yy_bs_column; \/**< The column count. *\/$/;"	m	struct:yy_buffer_state	file:
 yy_bs_lineno	lex.yy.c	/^    int yy_bs_lineno; \/**< The line count. *\/$/;"	m	struct:yy_buffer_state	file:
 yy_buf_pos	lex.yy.c	/^	char *yy_buf_pos;		\/* current position in input buffer *\/$/;"	m	struct:yy_buffer_state	file:
@@ -115,9 +156,9 @@ yy_buffer_state	lex.yy.c	/^struct yy_buffer_state$/;"	s	file:
 yy_buffer_status	lex.yy.c	/^	int yy_buffer_status;$/;"	m	struct:yy_buffer_state	file:
 yy_c_buf_p	lex.yy.c	/^static char *yy_c_buf_p = (char *) 0;$/;"	v	file:
 yy_ch_buf	lex.yy.c	/^	char *yy_ch_buf;		\/* input buffer *\/$/;"	m	struct:yy_buffer_state	file:
-yy_chk	lex.yy.c	/^static yyconst flex_int16_t yy_chk[19] =$/;"	v	file:
+yy_chk	lex.yy.c	/^static yyconst flex_int16_t yy_chk[33] =$/;"	v	file:
 yy_create_buffer	lex.yy.c	/^    YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )$/;"	f
-yy_def	lex.yy.c	/^static yyconst flex_int16_t yy_def[17] =$/;"	v	file:
+yy_def	lex.yy.c	/^static yyconst flex_int16_t yy_def[20] =$/;"	v	file:
 yy_delete_buffer	lex.yy.c	/^    void yy_delete_buffer (YY_BUFFER_STATE  b )$/;"	f
 yy_did_buffer_switch_on_eof	lex.yy.c	/^static int yy_did_buffer_switch_on_eof;$/;"	v	file:
 yy_ec	lex.yy.c	/^static yyconst flex_int32_t yy_ec[256] =$/;"	v	file:
@@ -144,7 +185,7 @@ yy_n_chars	lex.yy.c	/^	int yy_n_chars;$/;"	m	struct:yy_buffer_state	file:
 yy_n_chars	lex.yy.c	/^static int yy_n_chars;		\/* number of characters read into yy_ch_buf *\/$/;"	v	file:
 yy_new_buffer	lex.yy.c	317;"	d	file:
 yy_nxt	lex.yy.c	/^	flex_int32_t yy_nxt;$/;"	m	struct:yy_trans_info	file:
-yy_nxt	lex.yy.c	/^static yyconst flex_int16_t yy_nxt[19] =$/;"	v	file:
+yy_nxt	lex.yy.c	/^static yyconst flex_int16_t yy_nxt[33] =$/;"	v	file:
 yy_scan_buffer	lex.yy.c	/^YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )$/;"	f
 yy_scan_bytes	lex.yy.c	/^YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, int  _yybytes_len )$/;"	f
 yy_scan_string	lex.yy.c	/^YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )$/;"	f
@@ -171,12 +212,12 @@ yyget_text	lex.yy.c	/^char *yyget_text  (void)$/;"	f
 yyin	lex.yy.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
 yyinput	lex.yy.c	/^    static int yyinput (void)$/;"	f	file:
 yyleng	lex.yy.c	/^int yyleng;$/;"	v
-yyless	lex.yy.c	1594;"	d	file:
-yyless	lex.yy.c	1595;"	d	file:
+yyless	lex.yy.c	1597;"	d	file:
+yyless	lex.yy.c	1598;"	d	file:
 yyless	lex.yy.c	175;"	d	file:
 yylex_destroy	lex.yy.c	/^int yylex_destroy  (void)$/;"	f
 yylineno	lex.yy.c	/^int yylineno = 1;$/;"	v
-yymore	lex.yy.c	457;"	d	file:
+yymore	lex.yy.c	461;"	d	file:
 yyout	lex.yy.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
 yypop_buffer_state	lex.yy.c	/^void yypop_buffer_state (void)$/;"	f
 yypush_buffer_state	lex.yy.c	/^void yypush_buffer_state (YY_BUFFER_STATE new_buffer )$/;"	f
@@ -186,7 +227,7 @@ yyset_debug	lex.yy.c	/^void yyset_debug (int  bdebug )$/;"	f
 yyset_in	lex.yy.c	/^void yyset_in (FILE *  in_str )$/;"	f
 yyset_lineno	lex.yy.c	/^void yyset_lineno (int  line_number )$/;"	f
 yyset_out	lex.yy.c	/^void yyset_out (FILE *  out_str )$/;"	f
-yyterminate	lex.yy.c	603;"	d	file:
+yyterminate	lex.yy.c	607;"	d	file:
 yytext	lex.yy.c	/^char *yytext;$/;"	v
 yytext_ptr	lex.yy.c	354;"	d	file:
 yyunput	lex.yy.c	/^    static void yyunput (int c, register char * yy_bp )$/;"	f	file:
