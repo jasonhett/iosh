@@ -14,6 +14,11 @@ string {quote}{anyButQuotes}*{quote}
 metachar [#<>]
 %%
 {whitespace} {/* skip blanks and tabs */}
+<<EOF>> {
+    token t(ENDOFFILE, "endoffile");
+    vTokens.push_back(t);
+    return ENDOFFILE;
+    }
 {string} {
     char* n = yytext;
     n++;

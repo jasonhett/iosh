@@ -59,6 +59,8 @@ bool parser(){
     
     if(firstValue != "exit" && firstValue != "quit"){
         switch( firstType ){
+            case ENDOFFILE:
+                return false;
             case METACHAR:
                 if( firstValue == "#" )
                     return true;

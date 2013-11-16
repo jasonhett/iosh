@@ -743,10 +743,18 @@ YY_RULE_SETUP
 #line 16 "i2p.l"
 {/* skip blanks and tabs */}
 	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 17 "i2p.l"
+{
+    token t(ENDOFLINE, "\\n");
+    vTokens.push_back(t);
+    return ENDOFLINE;
+    }
+	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 17 "i2p.l"
+#line 22 "i2p.l"
 {
     char* n = yytext;
     n++;
@@ -758,7 +766,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 25 "i2p.l"
+#line 30 "i2p.l"
 {
     token t(WORD, yytext);
     vTokens.push_back(t);
@@ -767,7 +775,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 30 "i2p.l"
+#line 35 "i2p.l"
 { 
     token t(METACHAR, yytext);
     vTokens.push_back(t);
@@ -777,7 +785,7 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 35 "i2p.l"
+#line 40 "i2p.l"
 {
     token t(ENDOFLINE, "\\n");
     vTokens.push_back(t);
@@ -786,12 +794,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 40 "i2p.l"
+#line 45 "i2p.l"
 ECHO;
 	YY_BREAK
-#line 793 "lex.yy.c"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 801 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1787,7 +1793,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 40 "i2p.l"
+#line 45 "i2p.l"
 
 
  /********** USER CODE **********/

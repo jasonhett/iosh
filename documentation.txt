@@ -1,0 +1,9 @@
+Please put exit at the end of any input file that you might feed into our solution.
+
+Also, everything should work just fine except that reading from a file and 
+writing to a file dont work when the '>' chars are used in a manner that
+normal unix shells don't permit.
+
+ex.
+ls > test.txt (works)
+test.txt < ls (doesnt work)

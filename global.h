@@ -9,6 +9,7 @@
 #define STRING 259 
 #define ENDOFLINE 260
 #define METACHAR 261
+#define ENDOFFILE 262
 
 int yylex(void);
 
